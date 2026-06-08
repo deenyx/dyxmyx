@@ -1,0 +1,114 @@
+[
+  {
+    "username": "deenyx",
+    "name": "Deenyx",
+      "bio": "Hey, I'm Deenyx. This is my official portfolio — photos, videos, and everything in between. Stick around.",
+      "location": "",
+      "height": "",
+    "avatar": "/uploads/deenyx/placeholder.svg",
+    "photos": [],
+    "videos": [
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/a834abd1-7b79-4560-b843-c68cab22e6c6",
+        "title": "Video 01",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-01/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/f69292e7-0238-46e8-a5bf-213e8018a327",
+        "title": "Video 02",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-02/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/85b9ed52-e32c-490e-bbaa-4eafafcc3e3f",
+        "title": "Video 03",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-03/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/ff22f576-780e-4661-b9ec-bd8cdb828dd9",
+        "title": "Video 04",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-04/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/af6da3c1-2348-4327-8327-27766b85b285",
+        "title": "Video 05",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-05/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/9f84545c-0c93-40f8-810d-efa9daca5e1a",
+        "title": "Video 06",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-06/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/6b02b8c7-9bf0-45e6-adff-3892eb1e0988",
+        "title": "Video 07",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-07/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/ff22f576-780e-4661-b9ec-bd8cdb828dd9",
+        "title": "Video 08",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-08/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/2f5a1ef9-c807-4ccf-ad7f-6ecec08ff1c3",
+        "title": "Video 09",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-09/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/ec478ac5-b0c8-4bcf-a499-49ff97e48c85",
+        "title": "Video 10",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-10/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/2f5a1ef9-c807-4ccf-ad7f-6ecec08ff1c3",
+        "title": "Video 11",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-11/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/55a1d41b-01fb-4f06-8a84-a45df17f5107",
+        "title": "Video 12",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-12/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/8b1b7f1c-2d6d-4ec9-aadf-288e5f6f50e9",
+        "title": "Video 13",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-13/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/4a2048df-bfad-4a42-822d-fe3b44832beb",
+        "title": "Video 14",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-14/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/1ce65b8d-52b9-40a2-8c2b-6961a3a386a0",
+        "title": "Video 15",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-15/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/47781a88-e65a-4b90-b2ed-652f758e2a6b",
+        "title": "Video 16",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-16/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/3aff3fd3-7b43-4180-92c4-3b3ea9c90f0a",
+        "title": "Video 17",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-17/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/8fdb0cbc-45f3-4799-97a0-309aef2f6fa8",
+        "title": "Video 18",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-18/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/eabdf3ab-d036-4467-8567-a73ce190f5e8",
+        "title": "Video 19",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-19/thumbnail.jpg"
+      },
+      {
+        "url": "https://iframe.mediadelivery.net/embed/677818/6a869125-70a4-42cb-a16f-6dc9a26aae8c",
+        "title": "Video 20",
+        "poster": "https://dyxmyx.b-cdn.net/deenyx/showreel-20/thumbnail.jpg"
+      }
+    ],
+    "createdAt": "2026-06-03T00:00:00.000Z"
+  }
+]
