@@ -61,6 +61,18 @@ export function resolveVideo(video: ProfileVideo): ResolvedVideo | null {
       }
     }
 
+    if (host.includes("player.mediadelivery.net")) {
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      if (parts[0] === "play" && parts.length >= 3) {
+        return {
+          kind: "bunny",
+          src: `https://iframe.mediadelivery.net/embed/${parts[1]}/${parts[2]}`,
+          poster: video.poster,
+          title: video.title,
+        };
+      }
+    }
+
     if (host.includes("iframe.mediadelivery.net")) {
       const parts = parsed.pathname.split("/").filter(Boolean);
       if (parts[0] === "embed" && parts.length >= 3) {
