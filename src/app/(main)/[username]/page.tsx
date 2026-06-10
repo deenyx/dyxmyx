@@ -36,27 +36,41 @@ export default async function ModelBioPage({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-4xl flex-1 px-6 py-10">
-      <div className="relative mx-auto mb-10 aspect-[3/4] max-h-[70vh] max-w-md overflow-hidden rounded-xl bg-neutral-900">
-        <Image
-          src="/pyxs/1.jpeg"
-          alt={profile.name}
-          fill
-          priority
-          className="object-cover object-top"
-          sizes="(max-width: 768px) 100vw, 448px"
-        />
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
+        <div
+          className="flex-shrink-0 rounded-xl overflow-hidden"
+          style={{
+            boxShadow:
+              "0 0 20px rgba(255, 20, 147, 0.5), 0 0 30px rgba(128, 0, 128, 0.3), 0 0 40px rgba(0, 255, 255, 0.3)",
+            border: "2px solid transparent",
+            background: "linear-gradient(135deg, #FF1493, #8B00FF, #00FFFF) border-box",
+          }}
+        >
+          <div className="relative w-64 h-80 bg-neutral-900">
+            <Image
+              src="/2.jpg"
+              alt={profile.name}
+              fill
+              priority
+              className="object-cover"
+              sizes="256px"
+            />
+          </div>
+        </div>
+
+        <div className="flex-1">
+          <ModelPageHeader title={profile.name} />
+
+          <div className="mb-6 flex flex-wrap gap-x-6 gap-y-2 text-sm uppercase tracking-widest text-neutral-400">
+            {profile.height && <span>{profile.height}</span>}
+            {profile.location && <span>{profile.location}</span>}
+          </div>
+
+          <p className="text-base leading-relaxed text-neutral-300 whitespace-pre-wrap">
+            {profile.bio}
+          </p>
+        </div>
       </div>
-
-      <ModelPageHeader title={profile.name} />
-
-      <div className="mb-8 flex flex-wrap gap-x-6 gap-y-1 text-xs uppercase tracking-widest text-neutral-500">
-        {profile.location && <span>{profile.location}</span>}
-        {profile.height && <span>{profile.height}</span>}
-      </div>
-
-      <p className="max-w-2xl text-base leading-relaxed text-neutral-300 whitespace-pre-wrap">
-        {profile.bio}
-      </p>
 
       <div className="mt-12 grid gap-3 sm:grid-cols-2">
         {sections.map((s) => (
