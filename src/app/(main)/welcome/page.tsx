@@ -16,7 +16,7 @@ export default function WelcomePage() {
       <audio autoPlay muted loop style={{ display: "none" }}>
         <source src="/one.mp3" type="audio/mpeg" />
       </audio>
-      <main className="flex-1 flex items-center justify-center overflow-hidden" style={{ backgroundImage: "url('/BG1.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
+      <main className="flex-1 flex items-center justify-center overflow-hidden" style={{ backgroundImage: "url('/BG1.jpg')", backgroundSize: "cover", backgroundPosition: "top center", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)" }}></div>
         <style>{`
           @keyframes fadeInUp {
