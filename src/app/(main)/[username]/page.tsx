@@ -48,7 +48,7 @@ export default async function ModelBioPage({ params }: Props) {
         >
           <div className="relative w-64 h-80 bg-neutral-900">
             <Image
-              src="/2.jpg"
+              src="/1.jpg"
               alt={profile.name}
               fill
               priority
