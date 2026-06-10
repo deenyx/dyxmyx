@@ -16,7 +16,7 @@ export function AgeGate() {
   }, [router]);
 
   function handleEnter() {
-    document.cookie = `age-verified=true; max-age=${60 * 60 * 24 * 30}; path=/; SameSite=Lax`;
+    document.cookie = `age-verified=true; max-age=${60 * 60 * 24 * 30}; path=/; SameSite=None; Secure`;
     router.push("/welcome");
   }
   return (
