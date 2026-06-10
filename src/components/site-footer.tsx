@@ -5,8 +5,8 @@ export function SiteFooter({ showLegalLinks = true, compact = false }: { showLeg
   if (compact) {
     return (
       <footer className="border-t border-neutral-800/80">
-        <div className="mx-auto max-w-6xl px-6 py-2">
-          <p className="text-[10px] uppercase tracking-widest text-neutral-600">Adults only · 18+</p>
+        <div className="mx-auto max-w-6xl px-6 py-1">
+          <p className="text-[9px] uppercase tracking-widest text-neutral-700">Adults only</p>
         </div>
       </footer>
     );
