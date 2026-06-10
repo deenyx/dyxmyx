@@ -38,7 +38,7 @@ export default async function ModelBioPage({ params }: Props) {
     <main className="mx-auto max-w-4xl flex-1 px-6 py-10">
       <div className="relative mx-auto mb-10 aspect-[3/4] max-h-[70vh] max-w-md overflow-hidden rounded-xl bg-neutral-900">
         <Image
-          src="https://dyxmyx.b-cdn.net/pyxs/1.jpg"
+          src="/pyxs/1.jpg"
           alt={profile.name}
           fill
           priority
