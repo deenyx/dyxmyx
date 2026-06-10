@@ -26,7 +26,15 @@ export default async function ModelContactPage({ params }: Props) {
   if (!profile) notFound();
 
   return (
-    <main className="mx-auto max-w-xl flex-1 px-6 py-10">
+    <main
+      className="mx-auto max-w-xl flex-1 px-6 py-10"
+      style={{
+        backgroundImage: "url('/2.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <ModelPageHeader
         title="Contact Me"
         description={`Reach out to ${profile.name} for bookings, collabs, or questions.`}

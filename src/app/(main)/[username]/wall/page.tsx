@@ -30,7 +30,15 @@ export default async function ModelWallPage({ params }: Props) {
   const posts = getWallPosts(username);
 
   return (
-    <main className="mx-auto max-w-2xl flex-1 px-6 py-10">
+    <main
+      className="mx-auto max-w-2xl flex-1 px-6 py-10"
+      style={{
+        backgroundImage: "url('/2.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <ModelPageHeader
         title="Wall"
         description={`Leave a note for ${profile.name}. Posts appear publicly.`}
