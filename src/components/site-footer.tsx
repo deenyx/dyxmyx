@@ -2,9 +2,19 @@ import Link from "next/link";
 import { legalLinks, site } from "@/lib/site";
 
 export function SiteFooter({ showLegalLinks = true, compact = false }: { showLegalLinks?: boolean; compact?: boolean }) {
+  if (compact) {
+    return (
+      <footer className="border-t border-neutral-800/80">
+        <div className="mx-auto max-w-6xl px-6 py-2">
+          <p className="text-[10px] uppercase tracking-widest text-neutral-600">Adults only · 18+</p>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="mt-auto border-t border-neutral-800/80">
-      <div className={`mx-auto max-w-6xl px-6 ${compact ? "py-3" : "py-10"}`}>
+      <div className="mx-auto max-w-6xl px-6 py-10">
         {showLegalLinks && !compact && (
           <nav
             aria-label="Legal and compliance"
