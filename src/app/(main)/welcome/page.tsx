@@ -17,10 +17,8 @@ export default function WelcomePage() {
         <source src="/one.mp3" type="audio/mpeg" />
       </audio>
       <main className="flex-1 flex items-center justify-center" style={{ backgroundImage: "url('/BG1.jpg')", backgroundSize: "contain", backgroundPosition: "center", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
-      <section className="text-center">
         <ModelsDropdown profiles={profiles} />
-      </section>
-    </main>
+      </main>
     </>
   );
 }
