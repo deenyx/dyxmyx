@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ModelPageHeader } from "@/components/model-nav";
+import Link from "next/link";
 import { getAllProfiles, getProfileByUsername } from "@/lib/profiles";
-import { profileMetaDescription } from "@/lib/model-routes";
+import { modelSectionPath, profileMetaDescription } from "@/lib/model-routes";
+import { PyxsGallery } from "@/components/pyxs-gallery";
 
 type Props = { params: Promise<{ username: string }> };
 
@@ -27,29 +27,36 @@ export default async function ModelPyxsPage({ params }: Props) {
   if (!profile) notFound();
 
   return (
-    <main className="mx-auto max-w-4xl flex-1 px-6 py-10">
-      <ModelPageHeader
-        title="Pyxs"
-        description={`Photo gallery for ${profile.name}.`}
-      />
+    <main className="bg-zinc-950 text-zinc-200 min-h-screen">
+      <div className="max-w-6xl mx-auto px-6 py-8">
+        <header className="flex justify-between items-center mb-12 border-b border-pink-500/30 pb-6">
+          <Link href="/" className="text-4xl font-bold" style={{ textShadow: "0 0 15px #ff00ff, 0 0 25px #00ffff" }}>
+            DYXMYX
+          </Link>
+          <nav className="flex gap-8 text-lg">
+            <Link href={modelSectionPath(username, "bio")} className="hover:text-pink-400 transition">
+              Bio
+            </Link>
+            <Link href={modelSectionPath(username, "pyxs")} className="text-pink-400 font-medium">
+              Pyxs
+            </Link>
+            <Link href={modelSectionPath(username, "video")} className="hover:text-pink-400 transition">
+              Videos
+            </Link>
+          </nav>
+        </header>
 
-      {profile.photos.length > 0 ? (
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
-          {profile.photos.map((photo, i) => (
-            <div key={photo.url} className="relative aspect-[3/4] overflow-hidden rounded-lg bg-neutral-900">
-              <Image
-                src={photo.url}
-                alt={photo.title || `${profile.name} — ${i + 1}`}
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 33vw"
-              />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="text-neutral-600">No photos yet.</p>
-      )}
+        <h1 className="text-6xl font-bold text-center mb-4" style={{ textShadow: "0 0 15px #ff00ff, 0 0 25px #00ffff" }}>
+          {profile.name} Pyxs
+        </h1>
+        <p className="text-pink-300 text-center text-xl mb-16">My private & naughty photo collection</p>
+
+        <PyxsGallery photos={profile.photos} profileName={profile.name} />
+      </div>
+
+      <footer className="mt-20 py-10 text-center text-zinc-500 text-sm border-t border-pink-500/20">
+        © 2026 DyxMyx • 18+ Only
+      </footer>
     </main>
   );
 }
