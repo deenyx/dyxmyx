@@ -16,12 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const profile = getProfileByUsername(username);
   if (!profile) return {};
   return {
-    title: `${profile.name} — Pics`,
+    title: `${profile.name} — Pyxs`,
     description: profileMetaDescription(profile),
   };
 }
 
-export default async function ModelPicsPage({ params }: Props) {
+export default async function ModelPyxsPage({ params }: Props) {
   const { username } = await params;
   const profile = getProfileByUsername(username);
   if (!profile) notFound();
@@ -29,7 +29,7 @@ export default async function ModelPicsPage({ params }: Props) {
   return (
     <main className="mx-auto max-w-4xl flex-1 px-6 py-10">
       <ModelPageHeader
-        title="Pics"
+        title="Pyxs"
         description={`Photo gallery for ${profile.name}.`}
       />
 

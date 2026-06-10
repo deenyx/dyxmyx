@@ -38,4 +38,4 @@ export type WallPost = {
   createdAt: string;
 };
 
-export type ModelSection = "bio" | "pics" | "video" | "wall" | "contact";
+export type ModelSection = "bio" | "pyxs" | "video" | "wall" | "contact";

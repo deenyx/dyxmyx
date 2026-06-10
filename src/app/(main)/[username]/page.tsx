@@ -28,7 +28,7 @@ export default async function ModelBioPage({ params }: Props) {
   if (!profile) notFound();
 
   const sections = [
-    { label: "Pics", href: modelSectionPath(username, "pics"), count: profile.photos.length },
+    { label: "Pyxs", href: modelSectionPath(username, "pyxs"), count: profile.photos.length },
     { label: "Video", href: modelSectionPath(username, "video"), count: profile.videos.length },
     { label: "Wall", href: modelSectionPath(username, "wall"), count: null },
     { label: "Contact", href: modelSectionPath(username, "contact"), count: null },

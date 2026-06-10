@@ -2,7 +2,7 @@ import type { ModelSection, Profile } from "./types";
 
 export const modelNav: { section: ModelSection; label: string; path: string }[] = [
   { section: "bio", label: "Bio", path: "/bio" },
-  { section: "pics", label: "Pics", path: "/pics" },
+  { section: "pyxs", label: "Pyxs", path: "/pyxs" },
   { section: "video", label: "Video", path: "/video" },
   { section: "wall", label: "Wall", path: "/wall" },
   { section: "contact", label: "Contact", path: "/contact" },

@@ -6,7 +6,21 @@
       "location": "",
       "height": "",
     "avatar": "/uploads/deenyx/placeholder.svg",
-    "photos": [],
+    "photos": [
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/1.jpeg", "title": "Photo 1" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/2.jpeg", "title": "Photo 2" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/3.jpeg", "title": "Photo 3" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/4.jpeg", "title": "Photo 4" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/5.jpeg", "title": "Photo 5" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/6.jpeg", "title": "Photo 6" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/7.jpeg", "title": "Photo 7" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/8.jpeg", "title": "Photo 8" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/9.jpeg", "title": "Photo 9" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/10.jpeg", "title": "Photo 10" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/11.jpeg", "title": "Photo 11" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/12.jpeg", "title": "Photo 12" },
+      { "url": "https://dyxmyx.b-cdn.net/pyxs/13.jpeg", "title": "Photo 13" }
+    ],
     "videos": [
       {
         "url": "https://player.mediadelivery.net/play/677818/a834abd1-7b79-4560-b843-c68cab22e6c6",
