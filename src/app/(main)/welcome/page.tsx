@@ -28,7 +28,7 @@ export default function WelcomePage() {
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4">
-          <ModelsDropdown />
+          <ModelsDropdown profiles={profiles} />
           {solo ? (
             <>
               <Link

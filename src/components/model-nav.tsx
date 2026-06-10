@@ -11,7 +11,7 @@ function activeSection(pathname: string, username: string): ModelSection {
   if (pathname === base || pathname === `${base}/` || pathname.startsWith(`${base}/bio`)) {
     return "bio";
   }
-  if (pathname.startsWith(`${base}/pics`)) return "pics";
+  if (pathname.startsWith(`${base}/pyxs`)) return "pyxs";
   if (pathname.startsWith(`${base}/video`) || pathname.startsWith(`${base}/videos`)) {
     return "video";
   }

@@ -2,12 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { getAllProfiles } from "@/lib/profiles";
+import type { Profile } from "@/lib/types";
 
-export function ModelsDropdown() {
+export function ModelsDropdown({ profiles }: { profiles: Profile[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const profiles = getAllProfiles();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

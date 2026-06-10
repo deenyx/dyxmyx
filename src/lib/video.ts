@@ -6,7 +6,12 @@ const bunnyStreamLibraryId =
   (process.env.NEXT_PUBLIC_BUNNY_STREAM_LIBRARY_ID ?? "").trim();
 
 function isBunnyHost(host: string): boolean {
-  return host.endsWith(".b-cdn.net") || host.endsWith(".bunnycdn.com");
+  return (
+    host.endsWith(".b-cdn.net") ||
+    host.endsWith(".bunnycdn.com") ||
+    host === "player.mediadelivery.net" ||
+    host === "iframe.mediadelivery.net"
+  );
 }
 
 function extensionKind(url: string): VideoKind | null {
