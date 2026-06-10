@@ -3,13 +3,7 @@ import { legalLinks, site } from "@/lib/site";
 
 export function SiteFooter({ showLegalLinks = true, compact = false }: { showLegalLinks?: boolean; compact?: boolean }) {
   if (compact) {
-    return (
-      <footer className="border-t border-neutral-800/80">
-        <div className="mx-auto max-w-6xl px-6 py-1">
-          <p className="text-[9px] uppercase tracking-widest text-neutral-700">Adults only</p>
-        </div>
-      </footer>
-    );
+    return <footer className="border-t border-neutral-800/80 h-px"></footer>;
   }
 
   return (
