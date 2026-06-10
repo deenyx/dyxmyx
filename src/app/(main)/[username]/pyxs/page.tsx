@@ -36,10 +36,10 @@ export default async function ModelPyxsPage({ params }: Props) {
       {profile.photos.length > 0 ? (
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
           {profile.photos.map((photo, i) => (
-            <div key={photo} className="relative aspect-[3/4] overflow-hidden rounded-lg bg-neutral-900">
+            <div key={photo.url} className="relative aspect-[3/4] overflow-hidden rounded-lg bg-neutral-900">
               <Image
-                src={photo}
-                alt={`${profile.name} — ${i + 1}`}
+                src={photo.url}
+                alt={photo.title || `${profile.name} — ${i + 1}`}
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
                 sizes="(max-width: 768px) 50vw, 33vw"

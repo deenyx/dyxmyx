@@ -26,7 +26,7 @@ export type Profile = {
   height?: string;
   contactEmail?: string;
   avatar: string;
-  photos: string[];
+  photos: { url: string; title?: string }[];
   videos: ProfileVideo[];
   createdAt: string;
 };
