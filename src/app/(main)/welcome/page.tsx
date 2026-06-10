@@ -13,6 +13,9 @@ export default function WelcomePage() {
   return (
     <>
       <ScrollingBanner />
+      <audio autoPlay muted loop style={{ display: "none" }}>
+        <source src="/one.mp3" type="audio/mpeg" />
+      </audio>
       <main className="flex-1" style={{ backgroundImage: "url('/BG1.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
       <section className="border-b border-neutral-800 px-6 py-16 text-center sm:py-24 bg-black/40">
         <p className="inline-block rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-red-400">
