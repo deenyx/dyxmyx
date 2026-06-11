@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deenyx Pyxs • DyxMyx</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .neon {
+            text-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+        }
+        .gallery-img {
+            transition: all 0.4s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200 min-h-screen">
+
+    <div class="max-w-6xl mx-auto px-6 py-8">
+        <header class="flex justify-between items-center mb-12 border-b border-pink-500/30 pb-6">
+            <a href="/" class="text-4xl font-bold neon">DYXMYX</a>
+            <nav class="flex gap-8 text-lg">
+                <a href="/deenyx/bio/" class="hover:text-pink-400">Bio</a>
+                <a href="/deenyx/pyxs/" class="text-pink-400 font-medium">Pyxs</a>
+                <a href="/deenyx/video/" class="hover:text-pink-400">Videos</a>
+            </nav>
+        </header>
+
+        <h1 class="text-6xl font-bold neon text-center mb-4">Deenyx Pyxs</h1>
+        <p class="text-pink-300 text-center text-xl mb-16">My private & naughty photo collection</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/1.jpeg" alt="Deenyx 1" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/2.jpeg" alt="Deenyx 2" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/3.jpeg" alt="Deenyx 3" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/4.jpeg" alt="Deenyx 4" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/5.jpeg" alt="Deenyx 5" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/6.jpeg" alt="Deenyx 6" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/7.jpeg" alt="Deenyx 7" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/8.jpeg" alt="Deenyx 8" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/9.jpeg" alt="Deenyx 9" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/10.jpeg" alt="Deenyx 10" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/11.jpeg" alt="Deenyx 11" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/12.jpeg" alt="Deenyx 12" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+            <img src="https://Dyxmyx.b-cdn.net/pyx/13.jpeg" alt="Deenyx 13" class="gallery-img rounded-2xl w-full cursor-pointer" onclick="openLightbox(this)">
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="hidden fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-8 right-8 text-5xl text-white hover:text-pink-400">✕</button>
+        <img id="lightbox-img" class="max-h-[90vh] max-w-[95vw] rounded-2xl" alt="">
+    </div>
+
+    <footer class="mt-20 py-10 text-center text-zinc-500 text-sm border-t border-pink-500/20">
+        © 2026 DyxMyx • 18+ Only
+    </footer>
+
+    <script>
+        function openLightbox(img) {
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox-img').src = img.src;
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+        document.getElementById('lightbox').onclick = closeLightbox;
+        document.getElementById('lightbox-img').onclick = (e) => e.stopPropagation();
+    </script>
+</body>
+</html>

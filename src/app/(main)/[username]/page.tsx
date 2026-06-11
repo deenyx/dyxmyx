@@ -43,13 +43,10 @@ export default async function ModelBioPage({ params }: Props) {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ boxShadow: "0 0 30px rgba(236, 72, 153, 0.3)" }}>
             <div className="relative w-full aspect-[3/4] bg-zinc-900">
-              <Image
-                src="/1.jpg"
+              <img
+                src="https://Dyxmyx.b-cdn.net/pyx/1.jpeg"
                 alt={profile.name}
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
