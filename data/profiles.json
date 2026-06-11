@@ -7,19 +7,19 @@
       "height": "5'8\"",
     "avatar": "/uploads/deenyx/placeholder.svg",
     "photos": [
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/1.jpeg", "title": "Photo 1" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/2.jpeg", "title": "Photo 2" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/3.jpeg", "title": "Photo 3" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/4.jpeg", "title": "Photo 4" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/5.jpeg", "title": "Photo 5" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/6.jpeg", "title": "Photo 6" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/7.jpeg", "title": "Photo 7" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/8.jpeg", "title": "Photo 8" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/9.jpeg", "title": "Photo 9" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/10.jpeg", "title": "Photo 10" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/11.jpeg", "title": "Photo 11" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/12.jpeg", "title": "Photo 12" },
-      { "url": "https://Dyxmyx.b-cdn.net/pyx/13.jpeg", "title": "Photo 13" }
+      { "url": "/pyxs/1.jpeg", "title": "Photo 1" },
+      { "url": "/pyxs/2.jpeg", "title": "Photo 2" },
+      { "url": "/pyxs/3.jpeg", "title": "Photo 3" },
+      { "url": "/pyxs/4.jpeg", "title": "Photo 4" },
+      { "url": "/pyxs/5.jpeg", "title": "Photo 5" },
+      { "url": "/pyxs/6.jpeg", "title": "Photo 6" },
+      { "url": "/pyxs/7.jpeg", "title": "Photo 7" },
+      { "url": "/pyxs/8.jpeg", "title": "Photo 8" },
+      { "url": "/pyxs/9.jpeg", "title": "Photo 9" },
+      { "url": "/pyxs/10.jpeg", "title": "Photo 10" },
+      { "url": "/pyxs/11.jpeg", "title": "Photo 11" },
+      { "url": "/pyxs/12.jpeg", "title": "Photo 12" },
+      { "url": "/pyxs/13.jpeg", "title": "Photo 13" }
     ],
     "videos": [
       {
