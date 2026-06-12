@@ -60,6 +60,22 @@ export function ModelNav({ profile }: { profile: Profile }) {
               </Link>
             );
           })}
+          <a
+            href="https://paypal.me/therealdfn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded-full px-3 py-1.5 text-xs uppercase tracking-wider transition-colors sm:px-4 bg-green-600 hover:bg-green-500 text-white"
+          >
+            Tip
+          </a>
+          <a
+            href="https://paypal.me/therealdfn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded-full px-3 py-1.5 text-xs uppercase tracking-wider transition-colors sm:px-4 border border-green-400 text-green-400 hover:bg-green-400/10"
+          >
+            Donate
+          </a>
         </div>
       </div>
     </nav>

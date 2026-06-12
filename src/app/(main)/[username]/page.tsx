@@ -104,6 +104,22 @@ export default async function ModelBioPage({ params }: Props) {
               >
                 Videos
               </Link>
+              <a
+                href="https://paypal.me/therealdfn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 rounded-lg font-semibold text-center transition transform hover:scale-105 uppercase tracking-wider"
+              >
+                Tip This Bitch
+              </a>
+              <a
+                href="https://paypal.me/therealdfn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border-2 border-green-400 hover:bg-green-400/10 rounded-lg font-semibold text-center transition text-green-400 uppercase tracking-wider"
+              >
+                Donate to Fuxem
+              </a>
             </div>
 
             {/* Section Links */}
