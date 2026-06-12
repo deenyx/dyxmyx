@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import type { ProfileVideo, ResolvedVideo } from "@/lib/types";
-import { AdBanner } from "@/components/ad-banner";
+import { ExoClickAd } from "@/components/exoclick-ad";
 import { VastVideoPlayer } from "@/components/vast-video-player";
 
 export type GalleryItem = {
@@ -38,11 +38,11 @@ export function VideoGallery({ items, modelName }: Props) {
 
   return (
     <div className="space-y-6">
-      <AdBanner slot="videos-header" className="mx-auto max-w-[728px]" />
+      <ExoClickAd zoneId="5947824" className="mx-auto max-w-[728px]" />
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)] lg:gap-8">
         <div className="space-y-3">
-          <AdBanner slot="videos-list-top" className="w-full" />
+          <ExoClickAd zoneId="5947828" className="w-full" />
 
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
             {items.length} {items.length === 1 ? "video" : "videos"}
@@ -93,17 +93,13 @@ export function VideoGallery({ items, modelName }: Props) {
 
                   {item.index !== items.length - 1 && (item.index + 1) % 3 === 0 && (
                     <div className="mt-2 hidden lg:block">
-                      <AdBanner slot="videos-inline" slotInstance={`desktop-${item.index}`} className="w-full" />
+                      <ExoClickAd zoneId="5947826" className="w-full" />
                     </div>
                   )}
 
                   {item.index !== items.length - 1 && (item.index + 1) % 2 === 0 && (
                     <div className="mt-2 lg:hidden">
-                      <AdBanner
-                        slot="videos-mobile-inline"
-                        slotInstance={`mobile-${item.index}`}
-                        className="w-full"
-                      />
+                      <ExoClickAd zoneId="5947832" className="w-full" />
                     </div>
                   )}
                 </li>
@@ -111,13 +107,13 @@ export function VideoGallery({ items, modelName }: Props) {
             })}
           </ul>
 
-          <AdBanner slot="videos-list-bottom" className="w-full" />
+          <ExoClickAd zoneId="5947842" className="w-full" />
 
-          <AdBanner slot="videos-sidebar" className="hidden lg:block" />
+          <ExoClickAd zoneId="5947824" className="hidden lg:block" />
         </div>
 
         <div className="min-w-0">
-          <AdBanner slot="videos-player-top" className="mb-4 w-full" />
+          <ExoClickAd zoneId="5947828" className="mb-4 w-full" />
 
           <div className="mb-4">
             <h2 className="font-serif text-2xl tracking-wide text-neutral-50">
@@ -130,11 +126,11 @@ export function VideoGallery({ items, modelName }: Props) {
 
           <VastVideoPlayer key={active.video.url} video={active.resolved} />
 
-          <AdBanner slot="videos-player-bottom" className="mt-4 w-full" />
+          <ExoClickAd zoneId="5947826" className="mt-4 w-full" />
         </div>
       </div>
 
-      <AdBanner slot="videos-footer" className="mx-auto max-w-[728px]" />
+      <ExoClickAd zoneId="5947832" className="mx-auto max-w-[728px]" />
     </div>
   );
 }

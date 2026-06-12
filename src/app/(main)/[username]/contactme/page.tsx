@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ModelContactForm } from "@/components/model-contact-form";
 import { ModelPageHeader } from "@/components/model-nav";
 import { getAllProfiles, getProfileByUsername } from "@/lib/profiles";
-import { AdBanner } from "@/components/ad-banner";
+import { ExoClickAd } from "@/components/exoclick-ad";
 
 type Props = { params: Promise<{ username: string }> };
 
@@ -36,7 +36,7 @@ export default async function ModelContactPage({ params }: Props) {
         backgroundAttachment: "fixed",
       }}
     >
-      <AdBanner slot="contact-header" className="mb-8 mx-auto max-w-[728px]" />
+      <ExoClickAd zoneId="5947842" className="mb-8 mx-auto max-w-[728px]" />
 
       <ModelPageHeader
         title="Contact Me"
@@ -57,7 +57,7 @@ export default async function ModelContactPage({ params }: Props) {
 
       <ModelContactForm modelName={profile.name} contactEmail={profile.contactEmail} />
 
-      <AdBanner slot="contact-footer" className="mt-12 mx-auto max-w-[728px]" />
+      <ExoClickAd zoneId="5947826" className="mt-12 mx-auto max-w-[728px]" />
     </main>
   );
 }

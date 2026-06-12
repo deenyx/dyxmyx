@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllProfiles, getProfileByUsername } from "@/lib/profiles";
 import { modelSectionPath, profileMetaDescription } from "@/lib/model-routes";
-import { AdBanner } from "@/components/ad-banner";
+import { ExoClickAd } from "@/components/exoclick-ad";
 
 type Props = { params: Promise<{ username: string }> };
 
@@ -30,7 +30,7 @@ export default async function ModelBioPage({ params }: Props) {
   return (
     <main className="bg-zinc-950 text-zinc-200 min-h-screen flex flex-col">
       <div className="flex-1 max-w-6xl mx-auto w-full px-6 py-8 md:py-16">
-        <AdBanner slot="bio-header" className="mb-8 mx-auto max-w-[728px]" />
+        <ExoClickAd zoneId="5947824" className="mb-8 mx-auto max-w-[728px]" />
 
         <div className="grid md:grid-cols-3 gap-12 items-start">
           {/* Image Section - Left Column */}
@@ -149,7 +149,7 @@ export default async function ModelBioPage({ params }: Props) {
           </div>
         </div>
 
-        <AdBanner slot="bio-footer" className="mt-12 mx-auto max-w-[728px]" />
+        <ExoClickAd zoneId="5947828" className="mt-12 mx-auto max-w-[728px]" />
       </div>
     </main>
   );
