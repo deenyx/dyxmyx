@@ -6,6 +6,7 @@ import { WallMessageForm } from "@/components/wall-message-form";
 import { getAllProfiles, getProfileByUsername } from "@/lib/profiles";
 import { formatWallDate } from "@/lib/model-routes";
 import { getWallPosts } from "@/lib/wall";
+import { AdBanner } from "@/components/ad-banner";
 
 type Props = { params: Promise<{ username: string }> };
 
@@ -32,6 +33,8 @@ export default async function ModelWallPage({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-2xl flex-1 px-6 py-10">
+      <AdBanner slot="wall-header" className="mb-8 mx-auto max-w-[728px]" />
+
       <ModelPageHeader
         title="Wall"
         description={`Leave a note for ${profile.name}. Posts appear publicly.`}
@@ -61,6 +64,8 @@ export default async function ModelWallPage({ params }: Props) {
           <p className="text-center text-sm text-neutral-600">No posts yet — be the first.</p>
         )}
       </div>
+
+      <AdBanner slot="wall-footer" className="mt-12 mx-auto max-w-[728px]" />
     </main>
   );
 }

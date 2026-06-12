@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getAllProfiles, getProfileByUsername } from "@/lib/profiles";
 import { modelSectionPath, profileMetaDescription } from "@/lib/model-routes";
 import { PyxsGallery } from "@/components/pyxs-gallery";
+import { AdBanner } from "@/components/ad-banner";
 
 type Props = { params: Promise<{ username: string }> };
 
@@ -29,6 +30,8 @@ export default async function ModelPyxsPage({ params }: Props) {
   return (
     <main className="bg-zinc-950 text-zinc-200 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 py-8">
+        <AdBanner slot="pyxs-header" className="mb-8 mx-auto max-w-[728px]" />
+
         <header className="flex justify-between items-center mb-12 border-b border-pink-500/30 pb-6">
           <Link href="/" className="text-4xl font-bold" style={{ textShadow: "0 0 15px #ff00ff, 0 0 25px #00ffff" }}>
             DYXMYX
@@ -52,6 +55,8 @@ export default async function ModelPyxsPage({ params }: Props) {
         <p className="text-pink-300 text-center text-xl mb-16">My private & naughty photo collection</p>
 
         <PyxsGallery photos={profile.photos} profileName={profile.name} />
+
+        <AdBanner slot="pyxs-footer" className="mt-12 mx-auto max-w-[728px]" />
       </div>
 
       <footer className="mt-20 py-10 text-center text-zinc-500 text-sm border-t border-pink-500/20">

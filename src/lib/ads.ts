@@ -7,7 +7,16 @@ export type AdBannerSlot =
   | "videos-player-bottom"
   | "videos-footer"
   | "videos-inline"
-  | "videos-mobile-inline";
+  | "videos-mobile-inline"
+  | "bio-header"
+  | "bio-footer"
+  | "pyxs-header"
+  | "pyxs-footer"
+  | "wall-header"
+  | "wall-footer"
+  | "contact-header"
+  | "contact-footer"
+  | "sticky";
 
 const zoneEnvKeys: Record<AdBannerSlot, string> = {
   "videos-header": "NEXT_PUBLIC_AD_ZONE_VIDEOS_HEADER",
@@ -19,6 +28,15 @@ const zoneEnvKeys: Record<AdBannerSlot, string> = {
   "videos-footer": "NEXT_PUBLIC_AD_ZONE_VIDEOS_FOOTER",
   "videos-inline": "NEXT_PUBLIC_AD_ZONE_VIDEOS_INLINE",
   "videos-mobile-inline": "NEXT_PUBLIC_AD_ZONE_VIDEOS_MOBILE_INLINE",
+  "bio-header": "NEXT_PUBLIC_AD_ZONE_BIO_HEADER",
+  "bio-footer": "NEXT_PUBLIC_AD_ZONE_BIO_FOOTER",
+  "pyxs-header": "NEXT_PUBLIC_AD_ZONE_PYXS_HEADER",
+  "pyxs-footer": "NEXT_PUBLIC_AD_ZONE_PYXS_FOOTER",
+  "wall-header": "NEXT_PUBLIC_AD_ZONE_WALL_HEADER",
+  "wall-footer": "NEXT_PUBLIC_AD_ZONE_WALL_FOOTER",
+  "contact-header": "NEXT_PUBLIC_AD_ZONE_CONTACT_HEADER",
+  "contact-footer": "NEXT_PUBLIC_AD_ZONE_CONTACT_FOOTER",
+  "sticky": "NEXT_PUBLIC_AD_ZONE_STICKY",
 };
 
 const snippetEnvKeys: Record<AdBannerSlot, string> = {
@@ -31,6 +49,15 @@ const snippetEnvKeys: Record<AdBannerSlot, string> = {
   "videos-footer": "NEXT_PUBLIC_AD_SNIPPET_VIDEOS_FOOTER",
   "videos-inline": "NEXT_PUBLIC_AD_SNIPPET_VIDEOS_INLINE",
   "videos-mobile-inline": "NEXT_PUBLIC_AD_SNIPPET_VIDEOS_MOBILE_INLINE",
+  "bio-header": "NEXT_PUBLIC_AD_SNIPPET_BIO_HEADER",
+  "bio-footer": "NEXT_PUBLIC_AD_SNIPPET_BIO_FOOTER",
+  "pyxs-header": "NEXT_PUBLIC_AD_SNIPPET_PYXS_HEADER",
+  "pyxs-footer": "NEXT_PUBLIC_AD_SNIPPET_PYXS_FOOTER",
+  "wall-header": "NEXT_PUBLIC_AD_SNIPPET_WALL_HEADER",
+  "wall-footer": "NEXT_PUBLIC_AD_SNIPPET_WALL_FOOTER",
+  "contact-header": "NEXT_PUBLIC_AD_SNIPPET_CONTACT_HEADER",
+  "contact-footer": "NEXT_PUBLIC_AD_SNIPPET_CONTACT_FOOTER",
+  "sticky": "NEXT_PUBLIC_AD_SNIPPET_STICKY",
 };
 
 export const adsConfig = {
