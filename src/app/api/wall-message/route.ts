@@ -23,7 +23,7 @@ Sent from dyxmyx.com wall
 
     // For now, log to console and return success
     // TODO: Configure email service (nodemailer, SendGrid, etc.)
-    console.log("Wall message received:", { name, message });
+    console.log("Wall message received:", { name, message, emailContent });
 
     return NextResponse.json(
       { success: true, message: "Message sent!" },

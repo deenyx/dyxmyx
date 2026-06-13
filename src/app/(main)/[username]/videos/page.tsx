@@ -35,8 +35,7 @@ export default async function ModelVideosPage({ params }: Props) {
       if (!resolved) return null;
       return { video, resolved };
     })
-    .filter((item): item is NonNullable<typeof item> => item !== null)
-    .sort(() => Math.random() - 0.5); // Randomize video order
+    .filter((item): item is NonNullable<typeof item> => item !== null);
 
   const excludedCount = Math.max(0, totalVideos - items.length);
 

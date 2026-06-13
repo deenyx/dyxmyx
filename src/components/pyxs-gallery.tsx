@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 interface Photo {
@@ -42,7 +43,13 @@ export function PyxsGallery({ photos, profileName }: { photos: Photo[]; profileN
               el.style.boxShadow = "none";
             }}
           >
-            <img src={photo.url} alt={photo.title || `${profileName} — ${i + 1}`} className="w-full h-full object-cover" />
+            <Image
+              src={photo.url}
+              alt={photo.title || `${profileName} — ${i + 1}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
           </div>
         ))}
       </div>
@@ -59,12 +66,19 @@ export function PyxsGallery({ photos, profileName }: { photos: Photo[]; profileN
           >
             ✕
           </button>
-          <img
-            src={selectedImg}
-            alt="Lightbox"
-            className="max-h-[90vh] max-w-[95vw] rounded-2xl"
+          <div
+            className="relative max-h-[90vh] max-w-[95vw] rounded-2xl overflow-hidden"
+            style={{ width: "min(95vw, 1200px)", height: "min(90vh, 80vh)" }}
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <Image
+              src={selectedImg}
+              alt="Lightbox"
+              fill
+              className="object-contain"
+              sizes="95vw"
+            />
+          </div>
         </div>
       )}
     </>

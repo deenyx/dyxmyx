@@ -43,11 +43,13 @@ export default async function ModelBioPage({ params }: Props) {
               }}
             >
               <div className="relative w-full aspect-[3/4] bg-zinc-900">
-                <img
-                  src={profile.photos && profile.photos[0]?.url || "/deenyx/pyxs/1.jpeg"}
+                <Image
+                  src={profile.photos?.[0]?.url ?? "/deenyx/pyxs/1.jpeg"}
                   alt={profile.name}
-                  className="w-full h-full object-cover"
-                  loading="eager"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  priority
                 />
               </div>
             </div>
@@ -108,7 +110,7 @@ export default async function ModelBioPage({ params }: Props) {
                 Videos
               </Link>
               <a
-                href="https://paypal.me/therealdfn"
+                href="https://paypal.me/fuxem"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 rounded-lg font-semibold text-center transition transform hover:scale-105 uppercase tracking-wider"
@@ -116,7 +118,7 @@ export default async function ModelBioPage({ params }: Props) {
                 Tip This Bitch
               </a>
               <a
-                href="https://paypal.me/therealdfn"
+                href="https://paypal.me/fuxem"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 border-2 border-green-400 hover:bg-green-400/10 rounded-lg font-semibold text-center transition text-green-400 uppercase tracking-wider"

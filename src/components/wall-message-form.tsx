@@ -27,7 +27,7 @@ export function WallMessageForm() {
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     } finally {
       setLoading(false);
