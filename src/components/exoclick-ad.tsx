@@ -11,43 +11,48 @@ type AdProviderWindow = Window & {
   AdProvider?: Array<{ serve: Record<string, unknown> }>;
 };
 
+const zoneInsClass: Record<string, string> = {
+  "5947824": "eas6a97888e2",
+  "5947828": "eas6a97888e2",
+  "5947826": "eas6a97888e10",
+  "5947832": "eas6a97888e17",
+  "5947842": "eas6a97888e37",
+};
+
+function getInsClass(zoneId: string) {
+  return zoneInsClass[zoneId] ?? `eas6a97888e${zoneId}`;
+}
+
 export function ExoClickAd({ zoneId, className = "" }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Load ad provider script if not already loaded
-    if (!document.querySelector('script[src="https://a.magsrv.com/ad-provider.js"]')) {
-      const script = document.createElement("script");
-      script.async = true;
-      script.type = "application/javascript";
-      script.src = "https://a.magsrv.com/ad-provider.js";
-      document.head.appendChild(script);
-    }
+    // Create ad container with the exact zone class expected by the provider.
+    const ins = document.createElement("ins");
+    ins.className = getInsClass(zoneId);
+    ins.setAttribute("data-zoneid", zoneId);
 
-    // Small delay to ensure ad provider is loaded
-    setTimeout(() => {
-      if (!containerRef.current) return;
+    containerRef.current.innerHTML = "";
+    containerRef.current.appendChild(ins);
 
-      // Create ad container
-      const ins = document.createElement("ins");
-      ins.className = `eas6a97888e${zoneId}`;
-      ins.setAttribute("data-zoneid", zoneId);
-      containerRef.current.appendChild(ins);
-
-      // Initialize ad
-      const win = window as AdProviderWindow;
-      win.AdProvider = win.AdProvider || [];
-      win.AdProvider.push({ serve: {} });
-    }, 100);
+    const script = document.createElement("script");
+    script.async = true;
+    script.type = "application/javascript";
+    script.text = `(AdProvider = window.AdProvider || []).push({"serve": {}});`;
+    containerRef.current.appendChild(script);
   }, [zoneId]);
 
   return (
     <div
       ref={containerRef}
-      className={`overflow-hidden ${className}`}
+      className={`overflow-hidden rounded-3xl border border-neutral-800 bg-zinc-950 ${className}`}
       style={{ minHeight: "90px" }}
-    />
+    >
+      <div className="flex h-full items-center justify-center text-sm text-neutral-500">
+        Loading advertisement...
+      </div>
+    </div>
   );
 }

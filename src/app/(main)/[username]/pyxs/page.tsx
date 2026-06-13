@@ -57,6 +57,7 @@ export default async function ModelPyxsPage({ params }: Props) {
         <PyxsGallery photos={profile.photos} profileName={profile.name} />
 
         <ExoClickAd zoneId="5947824" className="mt-12 mx-auto max-w-[728px]" />
+        <ExoClickAd zoneId="5947832" className="mt-8 mx-auto max-w-[728px]" />
       </div>
 
       <footer className="mt-20 py-10 text-center text-zinc-500 text-sm border-t border-pink-500/20">

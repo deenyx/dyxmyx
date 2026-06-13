@@ -54,6 +54,10 @@ export default async function ModelVideosPage({ params }: Props) {
         )}
       </div>
 
+      <div className="mb-8 rounded-3xl bg-zinc-950 border border-neutral-800 p-4">
+        <ExoClickAd zoneId="5947824" className="mx-auto max-w-[728px]" />
+      </div>
+
       {items.length > 0 ? (
         <VideoGallery items={items} modelName={profile.name} />
       ) : (
@@ -61,6 +65,13 @@ export default async function ModelVideosPage({ params }: Props) {
           <p className="text-neutral-600">No videos yet.</p>
         </div>
       )}
+
+      <div className="mt-12 rounded-3xl bg-zinc-950 border border-neutral-800 p-4">
+        <ExoClickAd zoneId="5947828" className="mx-auto max-w-[728px]" />
+      </div>
+      <div className="mt-8 rounded-3xl bg-zinc-950 border border-neutral-800 p-4">
+        <ExoClickAd zoneId="5947832" className="mx-auto max-w-[728px]" />
+      </div>
     </main>
   );
 }

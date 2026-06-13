@@ -17,6 +17,7 @@ export default function WelcomePage() {
         <ModelsDropdown profiles={profiles} />
       </main>
       <ExoClickAd zoneId="5947828" className="mx-auto max-w-[728px]" />
+      <ExoClickAd zoneId="5947832" className="mt-8 mx-auto max-w-[728px]" />
     </>
   );
 }

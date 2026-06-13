@@ -30,7 +30,13 @@ export default async function ModelBioPage({ params }: Props) {
   return (
     <main className="bg-zinc-950 text-zinc-200 min-h-screen flex flex-col">
       <div className="flex-1 max-w-6xl mx-auto w-full px-6 py-8 md:py-16">
-        <ExoClickAd zoneId="5947824" className="mb-8 mx-auto max-w-[728px]" />
+        <div className="mb-8 rounded-3xl bg-zinc-950 border border-neutral-800 p-4">
+          <div className="mb-4 flex items-center justify-between text-xs uppercase tracking-[0.35em] text-neutral-500">
+            <span>Advertisement</span>
+            <span>Sponsored</span>
+          </div>
+          <ExoClickAd zoneId="5947824" className="mx-auto max-w-[728px]" />
+        </div>
 
         <div className="grid md:grid-cols-3 gap-12 items-start">
           {/* Image Section - Left Column */}
@@ -151,7 +157,14 @@ export default async function ModelBioPage({ params }: Props) {
           </div>
         </div>
 
-        <ExoClickAd zoneId="5947828" className="mt-12 mx-auto max-w-[728px]" />
+        <div className="mt-12 rounded-3xl bg-zinc-950 border border-neutral-800 p-4">
+          <div className="mb-4 flex items-center justify-between text-xs uppercase tracking-[0.35em] text-neutral-500">
+            <span>Advertisement</span>
+            <span>Sponsored</span>
+          </div>
+          <ExoClickAd zoneId="5947828" className="mx-auto max-w-[728px]" />
+          <ExoClickAd zoneId="5947832" className="mt-8 mx-auto max-w-[728px]" />
+        </div>
       </div>
     </main>
   );

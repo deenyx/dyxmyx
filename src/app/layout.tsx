@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -29,6 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable} h-full`}>
+      <head>
+        <Script
+          src="https://a.magsrv.com/ad-provider.js"
+          async
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-neutral-950 font-sans text-neutral-100 antialiased">
         {children}
       </body>
