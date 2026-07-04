@@ -85,13 +85,17 @@ export function ModelNav({ profile }: { profile: Profile }) {
 export function ModelPageHeader({
   title,
   description,
+  titleClassName,
 }: {
   title: string;
   description?: string;
+  titleClassName?: string;
 }) {
   return (
     <header className="mb-10">
-      <h1 className="font-serif text-3xl tracking-wide text-neutral-50 sm:text-4xl">{title}</h1>
+      <h1 className={`font-serif text-3xl tracking-wide text-neutral-50 sm:text-4xl ${titleClassName ?? ""}`}>
+        {title}
+      </h1>
       {description && (
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-500">{description}</p>
       )}

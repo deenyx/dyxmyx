@@ -60,9 +60,12 @@ const snippetEnvKeys: Record<AdBannerSlot, string> = {
   "sticky": "NEXT_PUBLIC_AD_SNIPPET_STICKY",
 };
 
+const defaultStaticVastPath = "/uploads/vast/preroll.xml";
+
 export const adsConfig = {
   enabled: process.env.NEXT_PUBLIC_ADS_ENABLED === "true",
-  vastPreRollUrl: process.env.NEXT_PUBLIC_VAST_PREROLL_URL ?? "",
+  vastPreRollUrl:
+    (process.env.NEXT_PUBLIC_VAST_PREROLL_URL ?? "").trim() || defaultStaticVastPath,
   /** exoclick | juicyads | custom */
   network: process.env.NEXT_PUBLIC_AD_NETWORK ?? "exoclick",
   providerScript:

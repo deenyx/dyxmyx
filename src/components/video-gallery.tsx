@@ -1,12 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import type { ProfileVideo, ResolvedVideo } from "@/lib/types";
+import {
+  getVideoViewCountsSnapshot,
+  incrementVideoViewCounter,
+  subscribeVideoViewCounts,
+  trackLocalEvent,
+} from "@/lib/analytics";
 import { ExoClickAd } from "@/components/exoclick-ad";
 import { VastVideoPlayer } from "@/components/vast-video-player";
 
 export type GalleryItem = {
+  routeId: string;
   video: ProfileVideo;
   resolved: ResolvedVideo;
 };
@@ -14,15 +22,87 @@ export type GalleryItem = {
 type Props = {
   items: GalleryItem[];
   modelName: string;
+  basePath: string;
+  activeVideoId?: string;
 };
 
 function formatLabel(item: GalleryItem, index: number): string {
   return item.video.title?.trim() || `Video ${index + 1}`;
 }
 
-export function VideoGallery({ items, modelName }: Props) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const active = items[activeIndex];
+function getRequestedIndex(searchParams: URLSearchParams, items: GalleryItem[]) {
+  const rawValue = searchParams.get("video");
+  if (!rawValue) return null;
+
+  const parsedValue = Number.parseInt(rawValue, 10);
+  if (Number.isInteger(parsedValue) && parsedValue >= 0 && parsedValue < items.length) {
+    return parsedValue;
+  }
+
+  const decodedValue = decodeURIComponent(rawValue);
+  const matchedIndex = items.findIndex((item) => item.video.url === decodedValue);
+  return matchedIndex >= 0 ? matchedIndex : null;
+}
+
+function getPathVideoIndex(videoId: string | undefined, items: GalleryItem[]) {
+  if (!videoId) return null;
+
+  const byId = items.findIndex((item) => item.routeId === videoId);
+  if (byId >= 0) return byId;
+
+  const parsedValue = Number.parseInt(videoId, 10);
+  if (!Number.isInteger(parsedValue) || parsedValue < 1 || parsedValue > items.length) {
+    return null;
+  }
+
+  return parsedValue - 1;
+}
+
+function getVideoHref(basePath: string, item: GalleryItem) {
+  return `${basePath}/${item.routeId}`;
+}
+
+function getViewKey(basePath: string, routeId: string) {
+  return `${basePath}/${routeId}`;
+}
+
+function formatViews(count: number) {
+  return `${count} ${count === 1 ? "view" : "views"}`;
+}
+
+export function VideoGallery({ items, modelName, basePath, activeVideoId }: Props) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const lastTrackedViewKeyRef = useRef<string | null>(null);
+  const activeIndex = useMemo(() => {
+    const pathIndex = getPathVideoIndex(activeVideoId, items);
+    if (pathIndex != null) return pathIndex;
+    return getRequestedIndex(searchParams, items);
+  }, [activeVideoId, items, searchParams]);
+  const [shareLabel, setShareLabel] = useState("Share");
+  const viewCountsSnapshot = useSyncExternalStore(
+    subscribeVideoViewCounts,
+    getVideoViewCountsSnapshot,
+    () => "{}",
+  );
+  const viewCounts = useMemo(() => {
+    try {
+      const parsed = JSON.parse(viewCountsSnapshot) as Record<string, unknown>;
+      if (!parsed || typeof parsed !== "object") return {};
+
+      const normalized: Record<string, number> = {};
+      for (const [key, value] of Object.entries(parsed)) {
+        if (typeof value === "number" && Number.isFinite(value) && value >= 0) {
+          normalized[key] = Math.floor(value);
+        }
+      }
+      return normalized;
+    } catch {
+      return {};
+    }
+  }, [viewCountsSnapshot]);
+
+  const active = activeIndex == null ? null : items[activeIndex] ?? null;
 
   const listItems = useMemo(
     () =>
@@ -34,12 +114,99 @@ export function VideoGallery({ items, modelName }: Props) {
     [items],
   );
 
-  if (!active) return null;
+  useEffect(() => {
+    if (!active) return;
+
+    const viewKey = getViewKey(basePath, active.routeId);
+    if (lastTrackedViewKeyRef.current === viewKey) return;
+
+    lastTrackedViewKeyRef.current = viewKey;
+    const nextCount = incrementVideoViewCounter(viewKey);
+    trackLocalEvent("video_viewed", {
+      routeId: active.routeId,
+      views: nextCount,
+      modelName,
+    });
+  }, [active, basePath, modelName]);
+
+  const handleSelectVideo = (index: number) => {
+    const item = items[index];
+    if (!item) return;
+
+    trackLocalEvent("video_selected", {
+      routeId: item.routeId,
+      index,
+      modelName,
+    });
+    router.replace(getVideoHref(basePath, item), { scroll: false });
+  };
+
+  const shareVideo = useCallback(async () => {
+    if (!active) return;
+
+    const shareUrl = `${window.location.origin}${getVideoHref(basePath, active)}`;
+    const title = formatLabel(active, activeIndex ?? 0);
+
+    try {
+      if (typeof navigator !== "undefined" && "share" in navigator) {
+        await navigator.share({
+          title: `${modelName} — ${title}`,
+          text: `Watch ${title} on ${modelName}'s page`,
+          url: shareUrl,
+        });
+        setShareLabel("Shared");
+        trackLocalEvent("video_shared", {
+          routeId: active.routeId,
+          method: "native-share",
+        });
+      } else {
+        const clipboard = (navigator as Navigator & { clipboard?: { writeText: (value: string) => Promise<void> } }).clipboard;
+        if (clipboard?.writeText) {
+          await clipboard.writeText(shareUrl);
+          setShareLabel("Link copied");
+          trackLocalEvent("video_shared", {
+            routeId: active.routeId,
+            method: "clipboard",
+          });
+        } else {
+          setShareLabel("Share unavailable");
+          trackLocalEvent("video_shared", {
+            routeId: active.routeId,
+            method: "unsupported",
+          });
+        }
+      }
+    } catch {
+      const clipboard = (navigator as Navigator & { clipboard?: { writeText: (value: string) => Promise<void> } }).clipboard;
+      if (clipboard?.writeText) {
+        try {
+          await clipboard.writeText(shareUrl);
+          setShareLabel("Link copied");
+          trackLocalEvent("video_shared", {
+            routeId: active.routeId,
+            method: "clipboard-fallback",
+          });
+        } catch {
+          setShareLabel("Share unavailable");
+          trackLocalEvent("video_shared", {
+            routeId: active.routeId,
+            method: "error",
+          });
+        }
+      } else {
+        setShareLabel("Share unavailable");
+        trackLocalEvent("video_shared", {
+          routeId: active.routeId,
+          method: "error",
+        });
+      }
+    }
+
+    window.setTimeout(() => setShareLabel("Share"), 1800);
+  }, [active, activeIndex, basePath, modelName]);
 
   return (
     <div className="space-y-6">
-      <ExoClickAd zoneId="5947824" className="mx-auto max-w-[728px]" />
-
       <div className="grid gap-6 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)] lg:gap-8">
         <div className="space-y-3">
           <ExoClickAd zoneId="5947828" className="w-full" />
@@ -48,14 +215,14 @@ export function VideoGallery({ items, modelName }: Props) {
             {items.length} {items.length === 1 ? "video" : "videos"}
           </p>
 
-          <ul className="max-h-[520px] space-y-2 overflow-y-auto pr-1">
-            {listItems.map((item) => {
-              const isActive = item.index === activeIndex;
+          <ul className="space-y-2">
+              {listItems.map((item) => {
+                const isActive = activeIndex != null && item.index === activeIndex;
               return (
-                <li key={item.video.url}>
+                <li key={item.routeId}>
                   <button
                     type="button"
-                    onClick={() => setActiveIndex(item.index)}
+                    onClick={() => handleSelectVideo(item.index)}
                     className={`flex w-full gap-3 rounded-xl border p-2 text-left transition-colors ${
                       isActive
                         ? "border-neutral-500 bg-neutral-900"
@@ -85,46 +252,54 @@ export function VideoGallery({ items, modelName }: Props) {
 
                     <div className="min-w-0 py-1">
                       <p className="truncate text-sm font-medium text-neutral-200">{item.label}</p>
+                      {isActive && (
+                        <p className="mt-1 text-[10px] uppercase tracking-wider text-pink-300">Selected</p>
+                      )}
                       <p className="mt-1 text-[10px] uppercase tracking-wider text-neutral-500">
-                        {item.resolved.kind}
+                        {item.resolved.kind} · {formatViews(viewCounts[getViewKey(basePath, item.routeId)] ?? 0)}
                       </p>
                     </div>
                   </button>
-
-                  {item.index !== items.length - 1 && (item.index + 1) % 3 === 0 && (
-                    <div className="mt-2 hidden lg:block">
-                      <ExoClickAd zoneId="5947826" className="w-full" />
-                    </div>
-                  )}
-
-                  {item.index !== items.length - 1 && (item.index + 1) % 2 === 0 && (
-                    <div className="mt-2 lg:hidden">
-                      <ExoClickAd zoneId="5947832" className="w-full" />
-                    </div>
-                  )}
                 </li>
               );
             })}
           </ul>
-
-          <ExoClickAd zoneId="5947842" className="w-full" />
-
-          <ExoClickAd zoneId="5947824" className="hidden lg:block" />
         </div>
 
         <div className="min-w-0">
-          <ExoClickAd zoneId="5947828" className="mb-4 w-full" />
+          {active ? (
+            <>
+              <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h2 className="font-serif text-2xl tracking-wide text-neutral-50">
+                    {formatLabel(active, activeIndex ?? 0)}
+                  </h2>
+                  <p className="mt-1 text-sm text-neutral-500">
+                    {modelName} · {active.resolved.kind.toUpperCase()}
+                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-wider text-neutral-500">
+                    {formatViews(viewCounts[getViewKey(basePath, active.routeId)] ?? 0)}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => void shareVideo()}
+                  className="rounded-full border border-neutral-700 bg-neutral-900/80 px-3 py-1.5 text-sm text-neutral-200 transition-colors hover:border-neutral-500 hover:text-white"
+                >
+                  {shareLabel}
+                </button>
+              </div>
 
-          <div className="mb-4">
-            <h2 className="font-serif text-2xl tracking-wide text-neutral-50">
-              {formatLabel(active, activeIndex)}
-            </h2>
-            <p className="mt-1 text-sm text-neutral-500">
-              {modelName} · {active.resolved.kind.toUpperCase()}
-            </p>
-          </div>
-
-          <VastVideoPlayer key={active.video.url} video={active.resolved} />
+              <VastVideoPlayer key={active.routeId} video={active.resolved} />
+            </>
+          ) : (
+            <div className="rounded-xl border border-dashed border-neutral-800 bg-neutral-900/20 px-6 py-16 text-center">
+              <p className="font-serif text-xl tracking-wide text-neutral-100">Pick a video to start watching</p>
+              <p className="mt-3 text-sm text-neutral-500">
+                No video is loaded automatically on this page.
+              </p>
+            </div>
+          )}
 
           <ExoClickAd zoneId="5947826" className="mt-4 w-full" />
         </div>

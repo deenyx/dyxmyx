@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { adsConfig } from "@/lib/ads";
+import { trackLocalEvent } from "@/lib/analytics";
 
 type Props = {
   zoneId: string;
   className?: string;
-};
-
-type AdProviderWindow = Window & {
-  AdProvider?: Array<{ serve: Record<string, unknown> }>;
 };
 
 const zoneInsClass: Record<string, string> = {
@@ -29,6 +27,13 @@ export function ExoClickAd({ zoneId, className = "" }: Props) {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    if (adsConfig.enabled && adsConfig.network === "exoclick" && !window.AdProvider) {
+      const providerScript = document.createElement("script");
+      providerScript.src = adsConfig.providerScript;
+      providerScript.async = true;
+      document.head.appendChild(providerScript);
+    }
+
     // Create ad container with the exact zone class expected by the provider.
     const ins = document.createElement("ins");
     ins.className = getInsClass(zoneId);
@@ -42,6 +47,11 @@ export function ExoClickAd({ zoneId, className = "" }: Props) {
     script.type = "application/javascript";
     script.text = `(AdProvider = window.AdProvider || []).push({"serve": {}});`;
     containerRef.current.appendChild(script);
+
+    trackLocalEvent("ad_slot_rendered", {
+      zoneId,
+      network: adsConfig.network,
+    });
   }, [zoneId]);
 
   return (

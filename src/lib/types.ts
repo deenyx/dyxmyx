@@ -1,4 +1,6 @@
 export type ProfileVideo = {
+  /** Immutable numeric route id used for /videos/{id} links. */
+  id?: number;
   url: string;
   /** Bunny Stream video GUID for iframe playback (requires library ID env var). */
   streamId?: string;

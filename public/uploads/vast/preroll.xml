@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="3.0">
+  <Ad id="default-preroll">
+    <InLine>
+      <AdSystem>dyxmyx</AdSystem>
+      <AdTitle>Default Preroll</AdTitle>
+      <Impression></Impression>
+      <Creatives>
+        <Creative id="default-preroll" sequence="1">
+          <Linear skipoffset="00:00:05">
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">/uploads/vast/default-preroll.mp4</MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>

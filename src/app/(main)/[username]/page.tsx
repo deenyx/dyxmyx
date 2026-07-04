@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { getAllProfiles, getProfileByUsername } from "@/lib/profiles";
 import { modelSectionPath, profileMetaDescription } from "@/lib/model-routes";
 import { ExoClickAd } from "@/components/exoclick-ad";
+import { RequestCamSesh } from "@/components/request-cam-sesh";
 
 type Props = { params: Promise<{ username: string }> };
 
@@ -29,6 +30,9 @@ export default async function ModelBioPage({ params }: Props) {
 
   return (
     <main className="bg-zinc-950 text-zinc-200 min-h-screen flex flex-col">
+      <audio autoPlay muted loop style={{ display: "none" }}>
+        <source src="/one.mp3" type="audio/mpeg" />
+      </audio>
       <div className="flex-1 max-w-6xl mx-auto w-full px-6 py-8 md:py-16">
         <div className="mb-8 rounded-3xl bg-zinc-950 border border-neutral-800 p-4">
           <div className="mb-4 flex items-center justify-between text-xs uppercase tracking-[0.35em] text-neutral-500">
@@ -96,7 +100,7 @@ export default async function ModelBioPage({ params }: Props) {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <Link
                 href={modelSectionPath(username, "pyxs")}
                 className="px-8 py-4 bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 rounded-lg font-semibold text-center transition transform hover:scale-105 uppercase tracking-wider"
@@ -131,6 +135,10 @@ export default async function ModelBioPage({ params }: Props) {
               >
                 Donate to Fuxem
               </a>
+            </div>
+
+            <div className="mb-8">
+              <RequestCamSesh profileName={profile.name} />
             </div>
 
             {/* Section Links */}

@@ -2,126 +2,215 @@
   {
     "username": "deenyx",
     "name": "Deenyx",
-      "bio": "Hey, I'm Deenyx. Bi male, sub CD, hella kinky, and I give the best head. Located in Western Canada. Always down for collabs with verified models. xoxo",
-      "location": "",
-      "height": "5'8\"",
+    "bio": "Hey, I'm Deenyx. Bi male, sub CD, hella kinky, and I give the best head. Located in Western Canada. Always down for collabs with verified models. xoxo",
+    "location": "",
+    "height": "5'8\"",
     "contactEmail": "therealfuxem@icloud.com",
     "avatar": "/uploads/deenyx/placeholder.svg",
     "photos": [
-      { "url": "/deenyx/pyxs/1.jpeg", "title": "Photo 1" },
-      { "url": "/deenyx/pyxs/2.jpeg", "title": "Photo 2" },
-      { "url": "/deenyx/pyxs/3.jpeg", "title": "Photo 3" },
-      { "url": "/deenyx/pyxs/4.jpeg", "title": "Photo 4" },
-      { "url": "/deenyx/pyxs/5.jpeg", "title": "Photo 5" },
-      { "url": "/deenyx/pyxs/6.jpeg", "title": "Photo 6" },
-      { "url": "/deenyx/pyxs/7.jpeg", "title": "Photo 7" },
-      { "url": "/deenyx/pyxs/8.jpeg", "title": "Photo 8" },
-      { "url": "/deenyx/pyxs/9.jpeg", "title": "Photo 9" },
-      { "url": "/deenyx/pyxs/10.jpeg", "title": "Photo 10" },
-      { "url": "/deenyx/pyxs/11.jpeg", "title": "Photo 11" },
-      { "url": "/deenyx/pyxs/12.jpeg", "title": "Photo 12" },
-      { "url": "/deenyx/pyxs/13.jpeg", "title": "Photo 13" }
+      {
+        "url": "/deenyx/pyxs/1.jpeg",
+        "title": "Photo 1"
+      },
+      {
+        "url": "/deenyx/pyxs/2.jpeg",
+        "title": "Photo 2"
+      },
+      {
+        "url": "/deenyx/pyxs/3.jpeg",
+        "title": "Photo 3"
+      },
+      {
+        "url": "/deenyx/pyxs/4.jpeg",
+        "title": "Photo 4"
+      },
+      {
+        "url": "/deenyx/pyxs/5.jpeg",
+        "title": "Photo 5"
+      },
+      {
+        "url": "/deenyx/pyxs/6.jpeg",
+        "title": "Photo 6"
+      },
+      {
+        "url": "/deenyx/pyxs/7.jpeg",
+        "title": "Photo 7"
+      },
+      {
+        "url": "/deenyx/pyxs/8.jpeg",
+        "title": "Photo 8"
+      },
+      {
+        "url": "/deenyx/pyxs/9.jpeg",
+        "title": "Photo 9"
+      },
+      {
+        "url": "/deenyx/pyxs/10.jpeg",
+        "title": "Photo 10"
+      },
+      {
+        "url": "/deenyx/pyxs/11.jpeg",
+        "title": "Photo 11"
+      },
+      {
+        "url": "/deenyx/pyxs/12.jpeg",
+        "title": "Photo 12"
+      },
+      {
+        "url": "/deenyx/pyxs/13.jpeg",
+        "title": "Photo 13"
+      }
     ],
     "videos": [
       {
         "url": "https://player.mediadelivery.net/play/677818/a834abd1-7b79-4560-b843-c68cab22e6c6",
         "title": "Video 01",
-        "poster": "/deenyx/titlecards/1.jpg"
+        "poster": "/deenyx/titlecards/1.jpg",
+        "id": 1
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/f69292e7-0238-46e8-a5bf-213e8018a327",
         "title": "Video 02",
-        "poster": "/deenyx/titlecards/2.jpg"
+        "poster": "/deenyx/titlecards/2.jpg",
+        "id": 2
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/85b9ed52-e32c-490e-bbaa-4eafafcc3e3f",
         "title": "Video 03",
-        "poster": "/deenyx/titlecards/3.jpg"
+        "poster": "/deenyx/titlecards/3.jpg",
+        "id": 3
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/ff22f576-780e-4661-b9ec-bd8cdb828dd9",
         "title": "Video 04",
-        "poster": "/deenyx/titlecards/4.jpg"
+        "poster": "/deenyx/titlecards/4.jpg",
+        "id": 4
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/af6da3c1-2348-4327-8327-27766b85b285",
         "title": "Video 05",
-        "poster": "/deenyx/titlecards/5.jpg"
+        "poster": "/deenyx/titlecards/5.jpg",
+        "id": 5
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/9f84545c-0c93-40f8-810d-efa9daca5e1a",
         "title": "Video 06",
-        "poster": "/deenyx/titlecards/6.jpg"
+        "poster": "/deenyx/titlecards/6.jpg",
+        "id": 6
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/6b02b8c7-9bf0-45e6-adff-3892eb1e0988",
         "title": "Video 07",
-        "poster": "/deenyx/titlecards/7.jpg"
+        "poster": "/deenyx/titlecards/7.jpg",
+        "id": 7
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/ff22f576-780e-4661-b9ec-bd8cdb828dd9",
         "title": "Video 08",
-        "poster": "/deenyx/titlecards/8.jpg"
+        "poster": "/deenyx/titlecards/8.jpg",
+        "id": 8
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/2f5a1ef9-c807-4ccf-ad7f-6ecec08ff1c3",
         "title": "Video 09",
-        "poster": "/deenyx/titlecards/9.jpg"
+        "poster": "/deenyx/titlecards/9.jpg",
+        "id": 9
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/ec478ac5-b0c8-4bcf-a499-49ff97e48c85",
         "title": "Video 10",
-        "poster": "/deenyx/titlecards/10.jpg"
+        "poster": "/deenyx/titlecards/10.jpg",
+        "id": 10
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/2f5a1ef9-c807-4ccf-ad7f-6ecec08ff1c3",
         "title": "Video 11",
-        "poster": "/deenyx/titlecards/11.jpg"
+        "poster": "/deenyx/titlecards/11.jpg",
+        "id": 11
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/55a1d41b-01fb-4f06-8a84-a45df17f5107",
         "title": "Video 12",
-        "poster": "/deenyx/titlecards/12.jpg"
+        "poster": "/deenyx/titlecards/12.jpg",
+        "id": 12
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/8b1b7f1c-2d6d-4ec9-aadf-288e5f6f50e9",
         "title": "Video 13",
-        "poster": "/deenyx/titlecards/13.jpg"
+        "poster": "/deenyx/titlecards/13.jpg",
+        "id": 13
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/4a2048df-bfad-4a42-822d-fe3b44832beb",
         "title": "Video 14",
-        "poster": "/deenyx/titlecards/14.jpg"
+        "poster": "/deenyx/titlecards/14.jpg",
+        "id": 14
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/1ce65b8d-52b9-40a2-8c2b-6961a3a386a0",
         "title": "Video 15",
-        "poster": "/deenyx/titlecards/15.jpg"
+        "poster": "/deenyx/titlecards/15.jpg",
+        "id": 15
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/47781a88-e65a-4b90-b2ed-652f758e2a6b",
         "title": "Video 16",
-        "poster": "/deenyx/titlecards/16.jpg"
+        "poster": "/deenyx/titlecards/16.jpg",
+        "id": 16
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/3aff3fd3-7b43-4180-92c4-3b3ea9c90f0a",
         "title": "Video 17",
-        "poster": "/deenyx/titlecards/17.jpg"
+        "poster": "/deenyx/titlecards/17.jpg",
+        "id": 17
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/8fdb0cbc-45f3-4799-97a0-309aef2f6fa8",
         "title": "Video 18",
-        "poster": "/deenyx/titlecards/18.jpg"
+        "poster": "/deenyx/titlecards/18.jpg",
+        "id": 18
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/eabdf3ab-d036-4467-8567-a73ce190f5e8",
         "title": "Video 19",
-        "poster": "/deenyx/titlecards/19.jpg"
+        "poster": "/deenyx/titlecards/20.jpg",
+        "id": 19
       },
       {
         "url": "https://player.mediadelivery.net/play/677818/6a869125-70a4-42cb-a16f-6dc9a26aae8c",
         "title": "Video 20",
-        "poster": "/deenyx/titlecards/20.jpg"
+        "poster": "/deenyx/titlecards/21.jpg",
+        "id": 20
+      },
+      {
+        "url": "https://player.mediadelivery.net/play/677818/2f4312b1-0f55-43d6-a1d8-c0b77d24a203",
+        "title": "Video 21",
+        "poster": "/deenyx/titlecards/1.jpg",
+        "id": 21
+      },
+      {
+        "url": "https://player.mediadelivery.net/play/677818/6a869125-70a4-42cb-a16f-6dc9a26aae8c",
+        "title": "Video 22",
+        "poster": "/deenyx/titlecards/2.jpg",
+        "id": 22
+      },
+      {
+        "url": "https://player.mediadelivery.net/play/677818/b8870ea3-4270-4841-ba00-6f4427dfc40d",
+        "title": "Video 23",
+        "poster": "/deenyx/titlecards/3.jpg",
+        "id": 23
+      },
+      {
+        "url": "https://vz-2b35d704-bd4.b-cdn.net/b8870ea3-4270-4841-ba00-6f4427dfc40d/playlist.m3u8",
+        "title": "Video 24",
+        "poster": "/deenyx/titlecards/4.jpg",
+        "id": 24
+      },
+      {
+        "url": "https://vz-2b35d704-bd4.b-cdn.net/415e3f62-0f67-49ea-82a6-90f80ef6d765/playlist.m3u8",
+        "title": "Video 25",
+        "poster": "/deenyx/titlecards/5.jpg",
+        "id": 25
       }
     ],
     "createdAt": "2026-06-03T00:00:00.000Z"
