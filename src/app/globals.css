@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-family-serif: var(--font-serif), Georgia, serif;
-  --font-family-sans: var(--font-sans), system-ui, sans-serif;
+  --font-family-serif: Georgia, "Times New Roman", serif;
+  --font-family-sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .copperplate-gradient-title {

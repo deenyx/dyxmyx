@@ -1,22 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Cormorant_Garamond, Inter } from "next/font/google";
 import { adsConfig } from "@/lib/ads";
 import { site } from "@/lib/site";
 import "./globals.css";
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
@@ -30,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable} h-full`}>
+    <html lang="en" className="h-full">
       <head>
         {adsConfig.enabled && adsConfig.network === "exoclick" && (
           <Script
