@@ -13,6 +13,21 @@ import {
 import { ExoClickAd } from "@/components/exoclick-ad";
 import { VastVideoPlayer } from "@/components/vast-video-player";
 
+const EXPERIMENTAL_LIST_TOP_ZONE =
+  process.env.NEXT_PUBLIC_AD_ZONE_VIDEOS_LIST_TOP?.trim() ?? "";
+const EXPERIMENTAL_PLAYER_TOP_ZONE =
+  process.env.NEXT_PUBLIC_AD_ZONE_VIDEOS_PLAYER_TOP?.trim() ?? "";
+const DEFAULT_LIST_ZONE = process.env.NEXT_PUBLIC_AD_ZONE_VIDEOS_LIST_PRIMARY?.trim() || "5947828";
+const DEFAULT_PLAYER_ZONE = process.env.NEXT_PUBLIC_AD_ZONE_VIDEOS_PLAYER_PRIMARY?.trim() || "5947826";
+const DEFAULT_FOOTER_DESKTOP_ZONE =
+  process.env.NEXT_PUBLIC_AD_ZONE_VIDEOS_FOOTER_DESKTOP?.trim() || "5947832";
+const DEFAULT_FOOTER_MOBILE_ZONE =
+  process.env.NEXT_PUBLIC_AD_ZONE_VIDEOS_FOOTER_MOBILE?.trim() || "5967760";
+const VIDEO_AD_EXPERIMENT_MODE =
+  process.env.NEXT_PUBLIC_AD_VIDEO_EXPERIMENT?.trim().toLowerCase() ?? "off";
+const PLAYER_TOP_EXPERIMENT_KEY = "dyxmyx.videos.playerTopExperiment.v1";
+const PLAYER_TOP_EXPERIMENT_NAME = "videos_player_top_v1";
+
 export type GalleryItem = {
   routeId: string;
   video: ProfileVideo;
@@ -74,6 +89,9 @@ export function VideoGallery({ items, modelName, basePath, activeVideoId }: Prop
   const router = useRouter();
   const searchParams = useSearchParams();
   const lastTrackedViewKeyRef = useRef<string | null>(null);
+  const [playerTopVariant, setPlayerTopVariant] = useState<"control" | "player-top" | null>(
+    VIDEO_AD_EXPERIMENT_MODE === "ab-player-top" ? null : "player-top",
+  );
   const activeIndex = useMemo(() => {
     const pathIndex = getPathVideoIndex(activeVideoId, items);
     if (pathIndex != null) return pathIndex;
@@ -205,11 +223,45 @@ export function VideoGallery({ items, modelName, basePath, activeVideoId }: Prop
     window.setTimeout(() => setShareLabel("Share"), 1800);
   }, [active, activeIndex, basePath, modelName]);
 
+  useEffect(() => {
+    if (VIDEO_AD_EXPERIMENT_MODE !== "ab-player-top") return;
+    if (!EXPERIMENTAL_PLAYER_TOP_ZONE || EXPERIMENTAL_PLAYER_TOP_ZONE === "5947826") {
+      queueMicrotask(() => setPlayerTopVariant("control"));
+      return;
+    }
+
+    try {
+      const storedVariant = window.localStorage.getItem(PLAYER_TOP_EXPERIMENT_KEY);
+      if (storedVariant === "control" || storedVariant === "player-top") {
+        queueMicrotask(() => setPlayerTopVariant(storedVariant));
+        return;
+      }
+
+      const assignedVariant = Math.random() < 0.5 ? "control" : "player-top";
+      window.localStorage.setItem(PLAYER_TOP_EXPERIMENT_KEY, assignedVariant);
+      queueMicrotask(() => setPlayerTopVariant(assignedVariant));
+      trackLocalEvent("ad_experiment_assigned", {
+        experiment: PLAYER_TOP_EXPERIMENT_NAME,
+        variant: assignedVariant,
+      });
+    } catch {
+      queueMicrotask(() => setPlayerTopVariant("control"));
+    }
+  }, []);
+
+  const showExperimentalPlayerTop =
+    !!EXPERIMENTAL_PLAYER_TOP_ZONE &&
+    EXPERIMENTAL_PLAYER_TOP_ZONE !== "5947826" &&
+    playerTopVariant === "player-top";
+
   return (
     <div className="space-y-6">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)] lg:gap-8">
         <div className="space-y-3">
-          <ExoClickAd zoneId="5947828" className="w-full" />
+          {EXPERIMENTAL_LIST_TOP_ZONE && EXPERIMENTAL_LIST_TOP_ZONE !== "5947828" && (
+            <ExoClickAd zoneId={EXPERIMENTAL_LIST_TOP_ZONE} size="compact" className="w-full" />
+          )}
+          <ExoClickAd zoneId={DEFAULT_LIST_ZONE} size="compact" className="w-full" />
 
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
             {items.length} {items.length === 1 ? "video" : "videos"}
@@ -267,6 +319,9 @@ export function VideoGallery({ items, modelName, basePath, activeVideoId }: Prop
         </div>
 
         <div className="min-w-0">
+          {showExperimentalPlayerTop && (
+            <ExoClickAd zoneId={EXPERIMENTAL_PLAYER_TOP_ZONE} size="compact" className="mb-4 w-full" />
+          )}
           {active ? (
             <>
               <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
@@ -301,11 +356,12 @@ export function VideoGallery({ items, modelName, basePath, activeVideoId }: Prop
             </div>
           )}
 
-          <ExoClickAd zoneId="5947826" className="mt-4 w-full" />
+          <ExoClickAd zoneId={DEFAULT_PLAYER_ZONE} className="mt-4 w-full" />
         </div>
       </div>
 
-      <ExoClickAd zoneId="5947832" className="mx-auto max-w-[728px]" />
+      <ExoClickAd zoneId={DEFAULT_FOOTER_DESKTOP_ZONE} size="compact" className="mx-auto hidden md:block" />
+      <ExoClickAd zoneId={DEFAULT_FOOTER_MOBILE_ZONE} className="mx-auto mt-4 w-full max-w-[320px] md:hidden" />
     </div>
   );
 }
